@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.Guideline
+        android:id="@+id/divideKeyAndValueLine"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        app:layout_constraintGuide_percent="0.35"
+        android:orientation="vertical"/>
+    <TextView
+        android:id="@+id/sentenceIdText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="@id/divideKeyAndValueLine"
+        android:text="@string/sentence_id_text"
+        />
+    <TextView
+        android:id="@+id/sentenceId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="sentenceId"
+        app:layout_constraintLeft_toLeftOf="@id/divideKeyAndValueLine"
+        />
+
+    <TextView
+        android:id="@+id/sentenceTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/sentenceIdText"
+        app:layout_constraintRight_toRightOf="@id/divideKeyAndValueLine"
+        android:text="@string/sentence_title_text"
+         />
+    <TextView
+        android:id="@+id/sentenceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Sentence title"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/sentenceId"
+        app:layout_constraintLeft_toLeftOf="@id/divideKeyAndValueLine"
+         />
+
+    <TextView
+        android:id="@+id/sentenceContentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/sentenceTitleText"
+        app:layout_constraintRight_toRightOf="@id/divideKeyAndValueLine"
+        android:text="@string/sentence_title_text"
+        />
+    <TextView
+        android:id="@+id/sentenceContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Sentence content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/sentenceTitle"
+        app:layout_constraintLeft_toLeftOf="@id/divideKeyAndValueLine"
+        />
+
+    <TextView
+        android:id="@+id/sentenceAuthorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/sentenceContent"
+        app:layout_constraintRight_toRightOf="@id/divideKeyAndValueLine"
+        android:text="@string/sentence_author_text"
+        />
+    <TextView
+        android:id="@+id/sentenceAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Sentence author"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/sentenceContent"
+        app:layout_constraintLeft_toLeftOf="@id/divideKeyAndValueLine"
+        />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DaySentence</string>
+    <string name="sentence_id_text">Sentence id:</string>
+    <string name="sentence_title_text">Sentence title:</string>
+    <string name="sentence_content_text">Sentence content:</string>
+    <string name="sentence_author_text">Sentence author:</string>
+</resources>
