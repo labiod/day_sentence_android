@@ -1,7 +1,7 @@
 package com.bitage.daysentence.service
 
 import com.bitage.daysentence.dto.SentenceDTO
-import retrofit2.Call
+import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,5 +11,5 @@ interface DaySentenceService {
     }
 
     @GET("sentence_dev")
-    fun getAllSentences(@Query("sentenceId") sentenceId: String): Call<List<SentenceDTO>>
+    fun getAllSentences(@Query("sentenceId") sentenceId: String): Observable<List<SentenceDTO>>
 }

@@ -19,7 +19,6 @@ class SentenceAdapter(val items: List<SentenceDTO>) : RecyclerView.Adapter<Sente
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val sentence = items[position]
-        holder.itemView.sentenceId.text = sentence.id
         holder.itemView.sentenceTitle.text = sentence.title
         holder.itemView.sentenceContent.text = sentence.content
         holder.itemView.sentenceAuthor.text = sentence.author
