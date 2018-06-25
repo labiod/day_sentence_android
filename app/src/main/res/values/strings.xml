@@ -5,4 +5,6 @@
     <string name="sentence_content_text">Sentence content:</string>
     <string name="sentence_author_text">Sentence author:</string>
     <string name="send_button_text">Send</string>
+    <string name="connection_problem_text">Connection problem, please check your internet connection and try again</string>
+    <string name="your_sentences_text">Your sentences</string>
 </resources>

@@ -10,6 +10,9 @@ interface DaySentenceService {
         val API_SERVER = "https://b86hfjbd3e.execute-api.eu-west-2.amazonaws.com"
     }
 
-    @GET("sentence_dev")
-    fun getAllSentences(@Query("sentenceId") sentenceId: String): Observable<List<SentenceDTO>>
+    @GET("/sentence_dev")
+    fun getAllSentences(): Observable<List<SentenceDTO>>
+
+    @GET("/sentence_dev/rand")
+    fun getDaySentence(): Observable<SentenceDTO>
 }

@@ -20,6 +20,10 @@ class ListSentenceDAO : ISentenceDAO<List<SentenceDTO>> {
         service = retrofit.create(DaySentenceService::class.java)
     }
     override fun fetch(filter: String): Observable<List<SentenceDTO>> {
-        return service.getAllSentences(filter)
+        return service.getAllSentences()
+    }
+
+    fun checkNetwork() {
+
     }
 }
