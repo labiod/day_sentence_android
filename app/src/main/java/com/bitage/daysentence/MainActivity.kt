@@ -5,25 +5,38 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.bitage.daysentence.adapter.SentenceAdapter
 import com.bitage.daysentence.dao.ListSentenceDAO
+import com.bitage.daysentence.databinding.ActivityDaySentenceBinding
+import com.bitage.daysentence.databinding.ActivityMainBinding
 import com.bitage.daysentence.rx.RxProvider
-import kotlinx.android.synthetic.main.activity_main.*
+import io.reactivex.disposables.CompositeDisposable
 
 class MainActivity : AppCompatActivity() {
+    private val binder: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
+    private val disposable: CompositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        sentenceList.layoutManager = LinearLayoutManager(this)
+        binder.sentenceList.layoutManager = LinearLayoutManager(this)
 
         val rxProvider = RxProvider()
-        sendButton.setOnClickListener {
+        binder.sendButton.setOnClickListener {
             val sentenceDAO = ListSentenceDAO()
-            sentenceDAO.fetch("*")
+            disposable.add(sentenceDAO.fetch("*")
                     .subscribeOn(rxProvider.getIoScheduler())
                     .observeOn(rxProvider.getMainThreadScheduler())
                     .subscribe {
-                        sentenceList.adapter = SentenceAdapter(it)
-                    }
+                        binder.sentenceList.adapter = SentenceAdapter(it)
+                    })
+        }
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        if (!disposable.isDisposed) {
+            disposable.dispose()
         }
     }
 }

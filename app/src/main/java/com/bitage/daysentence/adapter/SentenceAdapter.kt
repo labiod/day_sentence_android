@@ -5,24 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bitage.daysentence.R
+import com.bitage.daysentence.databinding.DaySentenceListItemBinding
 import com.bitage.daysentence.dto.SentenceDTO
-import kotlinx.android.synthetic.main.day_sentence_list_item.view.*
 
 class SentenceAdapter(val items: List<SentenceDTO>) : RecyclerView.Adapter<SentenceAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val root = LayoutInflater.from(parent.context).inflate(R.layout.day_sentence_list_item, parent, false)
-        return ViewHolder(root)
+        val binder = DaySentenceListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binder)
     }
 
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val sentence = items[position]
-        holder.itemView.sentenceTitle.text = sentence.title
-        holder.itemView.sentenceContent.text = sentence.content
-        holder.itemView.sentenceAuthor.text = sentence.author
+        holder.binder.sentenceTitle.text = sentence.title
+        holder.binder.sentenceContent.text = sentence.content
+        holder.binder.sentenceAuthor.text = sentence.author
     }
 
-    class ViewHolder(root: View): RecyclerView.ViewHolder(root)
+    class ViewHolder(val binder: DaySentenceListItemBinding): RecyclerView.ViewHolder(binder.root)
 }
