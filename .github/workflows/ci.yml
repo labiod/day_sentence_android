@@ -1,0 +1,36 @@
+name: App CI
+
+on:
+  push:
+    branches:
+      - develop
+      - master
+      - release/*
+  pull_request:
+    branches:
+      - develop
+      - master
+      - release/*
+
+jobs:
+  build:
+    name: build app
+    runs-on: macos-latest
+    env:
+      ANDROID_SDK_ROOT: "/Users/runner/android-sdk"
+      ANDROID_HOME: "~/.android/"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Java 8
+        uses: actions/setup-java@v2
+        with:
+          java-version: 8
+          distribution: 'adopt'
+      - name: Setup environment
+        run: |
+          ./scripts/setup.sh
+
+      - name: Run test on emulator
+        run: |
+          ./scripts/run-test-on-emulator.sh
