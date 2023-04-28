@@ -1,10 +1,8 @@
 package com.bitage.daysentence.adapter
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.bitage.daysentence.R
+import androidx.recyclerview.widget.RecyclerView
 import com.bitage.daysentence.databinding.DaySentenceListItemBinding
 import com.bitage.daysentence.dto.SentenceDTO
 

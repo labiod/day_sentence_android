@@ -1,8 +1,8 @@
 package com.bitage.daysentence
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import androidx.appcompat.app.AppCompatActivity
 
 class YourSentenceActivity : AppCompatActivity() {
 
