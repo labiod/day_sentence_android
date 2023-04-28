@@ -1,8 +1,8 @@
 package com.bitage.daysentence
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bitage.daysentence.adapter.SentenceAdapter
 import com.bitage.daysentence.dao.ListSentenceDAO
 import com.bitage.daysentence.databinding.ActivityDaySentenceBinding
