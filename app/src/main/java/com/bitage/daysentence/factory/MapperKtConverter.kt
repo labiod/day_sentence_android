@@ -5,7 +5,9 @@ import io.github.newagewriter.processor.mapper.AbstractMapper
 import okhttp3.ResponseBody
 import retrofit2.Converter
 import retrofit2.Retrofit
+import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
+import kotlin.reflect.KClass
 
 class MapperKtConverter<T> private constructor(private val clazz: Class<T>) : Converter<ResponseBody, T> where T : Any {
 
@@ -24,20 +26,19 @@ class MapperKtConverter<T> private constructor(private val clazz: Class<T>) : Co
             annotations: Array<out Annotation>,
             retrofit: Retrofit
         ): Converter<ResponseBody, *> {
-            val clazz =
-//                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
-//                // only for gingerbread and newer versions
-//                Class.forName(type.typeName)
-//            } else {
-                SentenceDTO::class.java
-//            }
+            val clazz = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
+                // only for gingerbread and newer versions
+                Class.forName(type.typeName)
+            } else {
+                type as Class<*>
+            }
             return MapperKtConverter(clazz)
         }
     }
 
     companion object {
         fun createFactory(): Converter.Factory {
-            return MapperKtConverter.Factory()
+            return Factory()
         }
     }
 }

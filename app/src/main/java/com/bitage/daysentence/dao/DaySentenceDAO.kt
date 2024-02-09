@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 
 class DaySentenceDAO : ISentenceDAO<SentenceDTO> {
-    val service: DaySentenceService
+    private val service: DaySentenceService
 
     init {
         val retrofit: Retrofit = Retrofit.Builder()
