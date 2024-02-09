@@ -1,6 +1,9 @@
 package com.bitage.daysentence.dto
 
-class SentenceDTO(
+import io.github.newagewriter.mapper.Mapper
+
+@Mapper
+data class SentenceDTO(
         val id: String,
         val title: String,
         val content: String,
